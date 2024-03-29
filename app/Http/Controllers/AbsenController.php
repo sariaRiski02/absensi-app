@@ -11,8 +11,9 @@ class AbsenController extends Controller
         return view('makeAbsen');
     }
 
-    public function join()
+
+    public function fillAbsen()
     {
-        return view('joinAbsen');
+        return view('fillAbsen');
     }
 }

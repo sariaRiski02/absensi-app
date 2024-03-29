@@ -7,11 +7,32 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+            
+            
+            <a href="/list-anggota" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Matematika - 23TYPJ
+                </h5>
+                <div class="font-normal text-gray-700 dark:text-gray-400">
+                    
+                    <p class="text-sm">
+                        Hadir: 24
+                    </p>
+                    <p class="text-sm">
+                        Alpa: 1
+                    </p>
+                    <p class="text-sm">
+                        Sakit: 3
+                    </p>
+                    <p class="text-sm">
+                        Izin: 2
+                    </p>
+                    <p class="text-sm">
+                        Jumlah Anggota: 30
+                    </p>
                 </div>
-            </div>
+            </a>
+    
         </div>
     </div>
 </x-app-layout>

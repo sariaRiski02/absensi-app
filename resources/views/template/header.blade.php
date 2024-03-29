@@ -15,13 +15,17 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="/buat-absen" class="text-sm font-semibold leading-6 text-gray-900">Buat Absen</a>
-        <a href="/gabung-absen" class="text-sm font-semibold leading-6 text-gray-900">Gabung Kelas</a>
+        {{-- <a href="/buat-absen" class="text-sm font-semibold leading-6 text-gray-900">Buat Absen</a>
+        <a href="/gabung-absen" class="text-sm font-semibold leading-6 text-gray-900">Gabung Kelas</a> --}}
+        <a href="/isi-absen" class="text-sm font-semibold leading-6 text-gray-900">Isi Absen</a>
         <a href="/tentang" class="text-sm font-semibold leading-6 text-gray-900">Tentang</a>
+        <a href="/kontak" class="text-sm font-semibold leading-6 text-gray-900">Kontak</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-5">
+      @if (!Auth::check())
         <a href="/register" class="text-sm font-semibold leading-6 text-gray-900">Register</a>
         <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in</a>
+        @endif
       </div>
     </nav>
     <!-- Menu seluler, Tampilkan/Sembunyikan Berdasarkan Status Terbuka Menu. -->
@@ -44,13 +48,17 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="/buat-absen" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Buat Absen</a>
-              <a href="/gabung-absen" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Daftar Siswa</a>
+              {{-- <a href="/buat-absen" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Buat Absen</a>
+              <a href="/gabung-absen" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Daftar Siswa</a> --}}
               <a href="/tentang" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Tentang</a>  
+              <a href="/kontak" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontak</a>  
             </div>
             <div class="py-6">
+              @if (!Auth::check())
+                  
               <a href="/login" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
               <a href="/register" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</a>
+              @endif
             </div>
           </div>
         </div>
