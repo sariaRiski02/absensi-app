@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Daftar Anggota kelas') }}
@@ -52,8 +52,8 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <div class="checkbox flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="checkbox-all-search w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </div>
                 </th>
@@ -75,6 +75,7 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
+                    
                         <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                     </div>
@@ -163,11 +164,48 @@
             </form>
         </div>
     </div>
+    <div class="p-4 float-end">
+
+        <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Unduh Daftar siswa</button>
+    </div>
 </div>
 
         
         </div>
+        
+           
+        
     </div>
 
 
 </x-app-layout>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Mengambil referensi checkbox dengan id checkbox-all-search
+    var checkbox = document.getElementById("checkbox-all-search");
+
+    // Menambahkan event listener untuk mendeteksi perubahan status checkbox
+    checkbox.addEventListener("change", function() {
+        // Memeriksa apakah checkbox dicentang
+        if (checkbox.checked) {
+            // Mengambil semua checkbox dengan nama yang sama
+            var checkboxes = document.querySelectorAll("input[type=checkbox][id^=checkbox-table-search]");
+
+            // Melakukan iterasi pada semua checkbox
+            checkboxes.forEach(function(item) {
+                // Mencentang semua checkbox
+                item.checked = true;
+            });
+        } else {
+            // Mengambil semua checkbox dengan nama yang sama
+            var checkboxes = document.querySelectorAll("input[type=checkbox][id^=checkbox-table-search]");
+
+            // Melakukan iterasi pada semua checkbox
+            checkboxes.forEach(function(item) {
+                // Mengosongkan semua checkbox
+                item.checked = false;
+            });
+        }
+    });
+});
+</script>
