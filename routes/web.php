@@ -9,7 +9,7 @@ use App\Http\Controllers\AuthSocialiteController;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/buat-absen', [AbsenController::class, 'index'])->name('absen.index')->middleware('auth');
+// Route::get('/buat-absen', [AbsenController::class, 'index'])->name('absen.index')->middleware('auth');
 Route::get('/isi-absen', [AbsenController::class, 'fillAbsen'])->name('absen.fill');
 Route::get('/list-anggota', [MemberController::class, 'index'])->name('member.index')->middleware('auth');
 Route::get('/tentang', function () {
@@ -31,6 +31,8 @@ Route::get('/kontak', function () {
     return view('contact');
 });
 
+
+Route::post('/buat-absen', [AbsenController::class, 'store']);
 
 
 

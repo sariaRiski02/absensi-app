@@ -17,14 +17,20 @@
                 <!-- Post Content Section -->
                 <div class="mb-6">
                     <label for="postContent" class="block text-gray-700 text-sm font-bold mb-2"> 
-                        Masukan Kode Anggota:</label>
-                    <input id="postContent" name="postContent" rows="4" class="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 resize-none focus:outline-none focus:border-blue-500" placeholder="contoh: dkj343">
+                        Masukan Nama:</label>
+                    <input id="postContent" name="membercode" rows="4" class="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 resize-none focus:outline-none focus:border-blue-500" placeholder="contoh: Faizal Anwar">
+                    </input>
+                </div>
+                <div class="mb-6">
+                    <label for="postContent" class="block text-gray-700 text-sm font-bold mb-2"> 
+                        Masukan Kode Kelas:</label>
+                    <input id="postContent" name="classcode" rows="4" class="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 resize-none focus:outline-none focus:border-blue-500" placeholder="contoh: dkj343">
                     </input>
                 </div>
                 <div class="mb-6">
                     <label for="postContent" class="block text-gray-700 text-sm font-bold mb-2"> 
                         Masukan Kode Absensi:</label>
-                    <input id="postContent" name="postContent" rows="4" class="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 resize-none focus:outline-none focus:border-blue-500" placeholder="contoh: dkj343">
+                    <input id="postContent" name="absencode" rows="4" class="w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm sm:leading-5 resize-none focus:outline-none focus:border-blue-500" placeholder="contoh: dkj343">
                     </input>
                 </div>
                 

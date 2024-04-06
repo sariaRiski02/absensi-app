@@ -18,6 +18,9 @@
         {{-- <a href="/buat-absen" class="text-sm font-semibold leading-6 text-gray-900">Buat Absen</a>
         <a href="/gabung-absen" class="text-sm font-semibold leading-6 text-gray-900">Gabung Kelas</a> --}}
         <a href="/isi-absen" class="text-sm font-semibold leading-6 text-gray-900">Isi Absen</a>
+        @auth
+        <a href="/dashboard" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+        @endauth
         <a href="/tentang" class="text-sm font-semibold leading-6 text-gray-900">Tentang</a>
         <a href="/kontak" class="text-sm font-semibold leading-6 text-gray-900">Kontak</a>
       </div>
