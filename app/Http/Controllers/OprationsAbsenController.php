@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\group;
 use Illuminate\Http\Request;
 
-class OprationsAbsen extends Controller
+class OprationsAbsenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,13 @@ class OprationsAbsen extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+
+
+        group::create($data);
     }
 
     /**

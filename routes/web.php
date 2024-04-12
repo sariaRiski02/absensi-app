@@ -6,14 +6,18 @@ use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthSocialiteController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\OprationsAbsen;
+use App\Http\Controllers\OprationsAbsenController;
+use App\Http\Middleware\indexMiddleware;
+use App\Livewire\ListMember;
 
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -21,18 +25,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/buat-absen', [AbsenController::class, 'index'])->name('absen.index')->middleware('auth');
+
 Route::get('/isi-absen', [AbsenController::class, 'fillAbsen'])->name('absen.fill');
-Route::get('/list-anggota', [MemberController::class, 'index'])->name('member.index')->middleware('auth');
+Route::get('/list-anggota/{id}', [ListMember::class, 'render'])->name('member.index')->middleware('auth')->middleware(indexMiddleware::class);
 Route::get('/tentang', function () {
     return view('about');
 });
 Route::get('/kontak', function () {
     return view('contact');
 });
+Route::get('/download', [DownloadController::class, 'download'])->name('absen.download')->middleware('auth');
 
-
-Route::post('/buat-absen', [AbsenController::class, 'store']);
+Route::post('/buat-absen', [OprationsAbsenController::class, 'store']);
 
 
 

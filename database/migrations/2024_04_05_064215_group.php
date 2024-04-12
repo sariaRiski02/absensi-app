@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('code_absen');
             $table->time('deadline');
             $table->unsignedBigInteger('id_user');
+            $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');
         });
