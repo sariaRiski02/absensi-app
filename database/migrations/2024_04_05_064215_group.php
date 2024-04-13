@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('code_absen');
-            $table->time('deadline');
+            $table->timestamp('deadline');
             $table->unsignedBigInteger('id_user');
             $table->timestamps();
 

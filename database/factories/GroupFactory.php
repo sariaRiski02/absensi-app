@@ -21,7 +21,7 @@ class GroupFactory extends Factory
         return [
             'name' => $this->faker->randomElement($this->subjects),
             'code_absen' => $this->faker->unique()->randomNumber(5),
-            'deadline' => $this->faker->dateTimeBetween('now', '+3 hours'),
+            'deadline' => $this->faker->dateTimeBetween('now', '+2 days'),
             'id_user' => User::get('id')->random(),
 
         ];

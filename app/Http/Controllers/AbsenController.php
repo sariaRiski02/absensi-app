@@ -52,13 +52,13 @@ class AbsenController extends Controller
 
         $record = group::where('code_absen', $request->absencode)->first();
 
-        if (!empty($recod) && $record->deadline > now()) {
+        if (!empty($record) && $record->deadline > now()) {
             participant::create([
                 'name' => $request->name,
                 'status' => 'hadir',
                 'id_group' => $record->id,
             ]);
-            return redirect()->back()->with('success', 'Absen berhasil diisi');
+            return redirect()->route('absen.fill')->with('success', 'Absen berhasil diisi');
         }
 
         return redirect()->route('absen.fill')->with('error', 'Kode absen tidak ditemukan atau sudah kadaluarsa');
