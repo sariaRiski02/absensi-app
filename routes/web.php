@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/isi-absen', [AbsenController::class, 'fillAbsen'])->name('absen.fill');
+Route::post('/submit-absen', [AbsenController::class, 'store'])->name('absen.store');
 Route::get('/list-anggota/{id}', [ListMember::class, 'render'])->name('member.index')->middleware('auth')->middleware(indexMiddleware::class);
 Route::get('/tentang', function () {
     return view('about');
