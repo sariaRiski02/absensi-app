@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\participantExport;
 use App\Models\participant;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -11,9 +12,10 @@ use Maatwebsite\Excel\Concerns\Exportable;
 class DownloadController extends Controller
 {
 
-    public function download()
+    public function download($id)
     {
 
-        return Excel::store(participant::all(), 'absen.xlsx', 'public');
+
+        return Excel::download(new participantExport($id), 'absen.xlsx');
     }
 }

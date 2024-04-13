@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
         $data = group::where('id_user', $user->id)->get();
 
+        // dd($data);
         return view('dashboard', compact('data'));
     }
 }

@@ -180,7 +180,7 @@ focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus
                     
                     <div class="ps-3">
                         <div class="text-base font-semibold">{{ $item->name }}</div>
-                        <div class="font-normal text-gray-500">{{ $item->email ?? "" }}</div>
+                        
                     </div>  
                 </th>
                 {{-- <td class="px-6 py-4">
@@ -188,7 +188,7 @@ focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus
                 </td> --}}
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                        
                         {{ $item->status }}
                     </div>
                 </td>
@@ -264,7 +264,7 @@ focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus
     </div>
     <div class="p-4 float-end">
 
-        <a href="/download" type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Unduh Daftar siswa</a>
+        <a href="/download/{{ $id }}" type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Unduh Daftar siswa</a>
     </div>
 </div>
 

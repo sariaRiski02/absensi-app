@@ -13,8 +13,6 @@ class ListMember extends Component
 
         $data = participant::where('id_group', $id)->get();
 
-
-
         return view('livewire.list-member', compact('data', 'id'));
     }
 }

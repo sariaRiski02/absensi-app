@@ -34,7 +34,7 @@ Route::get('/tentang', function () {
 Route::get('/kontak', function () {
     return view('contact');
 });
-Route::get('/download', [DownloadController::class, 'download'])->name('absen.download')->middleware('auth');
+Route::get('/download/{id}', [DownloadController::class, 'download'])->name('absen.download')->middleware('auth');
 
 Route::post('/buat-absen', [OprationsAbsenController::class, 'store']);
 
