@@ -8,11 +8,13 @@ use Livewire\Component;
 
 class ListMember extends Component
 {
-    public function render($id)
+    public $key;
+    public function render()
     {
 
-        $data = participant::where('id_group', $id)->get();
 
-        return view('livewire.list-member', compact('data', 'id'));
+        $participants = participant::where('id_group', $this->key)->get();
+
+        return view('livewire.list-member', compact('participants'));
     }
 }

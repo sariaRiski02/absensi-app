@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\OprationsAbsen;
 use App\Http\Controllers\OprationsAbsenController;
+use App\Http\Controllers\ParticipantController;
 use App\Http\Middleware\indexMiddleware;
 use App\Livewire\ListMember;
 
@@ -28,7 +29,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/isi-absen', [AbsenController::class, 'fillAbsen'])->name('absen.fill');
 Route::post('/submit-absen', [AbsenController::class, 'store'])->name('absen.store');
-Route::get('/list-anggota/{id}', [ListMember::class, 'render'])->name('member.index')->middleware('auth')->middleware(indexMiddleware::class);
+Route::get('/list-anggota/{id}', [ParticipantController::class, 'index'])->name('participant.index')->middleware('auth')->middleware(indexMiddleware::class);
 Route::get('/tentang', function () {
     return view('about');
 });
