@@ -55,7 +55,7 @@ class AbsenController extends Controller
         if (!empty($record) && $record->deadline > now()) {
             participant::create([
                 'name' => $request->name,
-                'status' => 'hadir',
+                'status' => 'Hadir',
                 'id_group' => $record->id,
             ]);
             return redirect()->route('absen.fill')->with('success', 'Absen berhasil diisi');
