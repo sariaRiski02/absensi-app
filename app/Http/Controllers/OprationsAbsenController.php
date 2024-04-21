@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\group;
+use App\Models\participant;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class OprationsAbsenController extends Controller
@@ -12,15 +14,24 @@ class OprationsAbsenController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request, $id)
     {
-        //
+
+
+        $duration = (int) $request->input('duration');
+
+        $group = group::find($id);
+        $group->update([
+            'code_absen' => strtoupper(Str::random(6)),
+            'deadline' => now()->addHours($duration),
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -66,6 +77,7 @@ class OprationsAbsenController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        participant::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

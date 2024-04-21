@@ -38,7 +38,8 @@ Route::get('/kontak', function () {
 });
 Route::get('/download/{id}', [DownloadController::class, 'download'])->name('absen.download')->middleware('auth');
 
-Route::post('/buat-absen', [OprationsAbsenController::class, 'store']);
+Route::post('/buat-absen/{id}', [OprationsAbsenController::class, 'create'])->name('absen.create')->middleware('auth');
+Route::get('/hapus/{id}', [OprationsAbsenController::class, 'destroy'])->name('absen.destroy')->middleware('auth');
 
 
 

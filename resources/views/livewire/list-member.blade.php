@@ -19,13 +19,16 @@
             <div>
                 {{-- button for generate absen code --}}
 
+                <button data-modal-target="makeabsen-modal" data-modal-toggle="makeabsen-modal"
+                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button">
+                    buat absen
+                </button>
 
-                <a href="#" class="text-white bg-blue-700 
-                    hover:bg-blue-800 focus:ring-4 
-                    focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 
-                    dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    Buat kode absen
-                </a>
+                {{-- generate absen code --}}
+                @include('modal.make-absen',['key' => $key])
+
+
             </div>
             <div>
                 {{-- button for copy code --}}
@@ -35,7 +38,7 @@
                         <label for="npm-install-copy-button" class="sr-only">Label</label>
                         <input id="npm-install-copy-button" type="text"
                             class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="code223" disabled readonly>
+                            value="{{ $codeAbsen }}" disabled readonly>
                         <button data-copy-to-clipboard-target="npm-install-copy-button"
                             data-tooltip-target="tooltip-copy-npm-install-copy-button"
                             class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
