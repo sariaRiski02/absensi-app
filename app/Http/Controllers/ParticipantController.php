@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\group;
+use App\Models\participant;
 use Illuminate\Http\Request;
 
 class ParticipantController extends Controller
@@ -15,5 +16,21 @@ class ParticipantController extends Controller
 
 
         return view('template-list-member', compact('key'));
+    }
+
+    public function addParticipant(Request $request, $idGroup)
+    {
+        $request->validate([
+            'name' => 'required',
+            'status' => 'required'
+        ]);
+
+        participant::create([
+            'name' => $request->name,
+            'status' => $request->status,
+            'id_group' => $idGroup
+        ]);
+
+        return redirect()->back();
     }
 }

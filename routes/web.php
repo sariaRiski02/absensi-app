@@ -40,6 +40,7 @@ Route::get('/download/{id}', [DownloadController::class, 'download'])->name('abs
 
 Route::post('/buat-absen/{id}', [OprationsAbsenController::class, 'create'])->name('absen.create')->middleware('auth');
 Route::get('/hapus/{id}', [OprationsAbsenController::class, 'destroy'])->name('absen.destroy')->middleware('auth');
+Route::post('/tambah-anggota/{id}', [ParticipantController::class, 'addParticipant'])->name('participant.add')->middleware('auth');
 
 
 

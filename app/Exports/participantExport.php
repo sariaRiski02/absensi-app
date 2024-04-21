@@ -23,14 +23,14 @@ class participantExport implements FromCollection
         $header = [
             'Nama',
             'Status',
-            'Waktu Absen'
+
         ];
 
         $formattedData = $data->map(function ($item) {
             return [
                 'Name' => $item->name,
                 'Status' => $item->status,
-                'Created At' => $item->created_at->format('Y-m-d H:i:s'),
+
             ];
         });
 
