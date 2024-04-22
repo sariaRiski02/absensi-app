@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('group', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
             $table->string('name');
             $table->string('code_absen');
             $table->timestamp('deadline');

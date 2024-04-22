@@ -23,7 +23,7 @@ class indexMiddleware
 
 
         $user_id = Auth::user()->id;
-        $group = group::where('id_user', $user_id)->pluck('id')->toArray();
+        $group = group::where('id_user', $user_id)->pluck('slug')->toArray();
         if (!in_array($lastUrl, $group)) {
             return redirect()->route('dashboard');
         }

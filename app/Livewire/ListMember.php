@@ -9,20 +9,16 @@ use App\Models\participant;
 
 class ListMember extends Component
 {
-    public $key;
-    public $search = '';
+    public $slug;
+
     public function render()
     {
 
 
-        if (!$this->search == '') {
+        $participants = group::where('slug', $this->slug)->first()->participant;
 
-            $participant = participant::where('name', 'like', '%' . $this->search . '%')->where('id_group', $this->key)->get();
-        } else {
-            $participants = participant::where('id_group', $this->key)->get();
-        }
 
-        $key = group::where('id', $this->key)->first();
+        $key = group::where('slug', $this->slug)->first();
         $codeAbsen = $key->code_absen;
 
 

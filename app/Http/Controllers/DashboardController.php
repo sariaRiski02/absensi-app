@@ -11,10 +11,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-
         $data = group::where('id_user', $user->id)->get();
-
-        // dd($data);
         return view('dashboard', compact('data'));
     }
 }

@@ -8,18 +8,17 @@ use Illuminate\Http\Request;
 
 class ParticipantController extends Controller
 {
-    public function index()
+    public function index($slug)
     {
-        $url = url()->current();
-        $array_url = explode('/', $url);
-        $key = last($array_url);
 
-
-        return view('template-list-member', compact('key'));
+        return view('template-list-member', ['slug' => $slug]);
     }
 
-    public function addParticipant(Request $request, $idGroup)
+    public function addParticipant(Request $request, $slug)
     {
+
+        $id_group = group::where('slug', $slug)->first()->id;
+
         $request->validate([
             'name' => 'required',
             'status' => 'required'
@@ -28,7 +27,7 @@ class ParticipantController extends Controller
         participant::create([
             'name' => $request->name,
             'status' => $request->status,
-            'id_group' => $idGroup
+            'id_group' => $id_group
         ]);
 
         return redirect()->back();

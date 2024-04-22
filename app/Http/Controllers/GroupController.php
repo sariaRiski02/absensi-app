@@ -20,6 +20,7 @@ class GroupController extends Controller
         group::create([
             'name' => $request->name,
             'id_user' => $id_user,
+            'slug' => Str::slug($request->name) . '-' . Str::random(5),
             'code_absen' => Str::random(10),
             'deadline' => now()->addHour(1),
         ]);

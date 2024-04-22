@@ -6,6 +6,8 @@
     </x-slot>
 
     <div class="p-5">
-        @livewire('list-member' ,['key' => $key])
+        @livewire('list-member' ,[
+        'slug' => $slug
+        ])
     </div>
 </x-app-layout>

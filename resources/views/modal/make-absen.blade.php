@@ -21,7 +21,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-                <form action="/buat-absen/{{ $key }}" method="post">
+                <form action="/buat-absen/{{ $slug }}" method="post">
                     @csrf
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
 

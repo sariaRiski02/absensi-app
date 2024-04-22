@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,15 +16,24 @@ class GroupFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $subjects = ['Matematika', 'Fisika', 'Kimia', 'Biologi', 'Sejarah', 'Geografi', 'Ekonomi', 'Bahasa Inggris'];
+    protected $subjects = [
+        'Matematika',
+        'Fisika',
+        'Kimia',
+        'Biologi',
+        'Sejarah',
+        'Geografi',
+        'Ekonomi',
+        'Bahasa Inggris'
+    ];
     public function definition(): array
     {
         return [
-            'name' => $this->faker->randomElement($this->subjects),
+            'name' => $this->faker->randomElement($this->subjects) . "-" . Str::random(4),
+            'slug' => $this->faker->slug(),
             'code_absen' => $this->faker->unique()->randomNumber(5),
             'deadline' => $this->faker->dateTimeBetween('now', '+2 days'),
             'id_user' => User::get('id')->random(),
-
         ];
     }
 }

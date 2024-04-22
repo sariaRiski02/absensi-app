@@ -21,7 +21,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-                <form class="space-y-4" action="/tambah-anggota/{{ $key }}" method="POST">
+                <form class="space-y-4" action="/tambah-anggota/{{ $slug }}" method="POST">
                     @csrf
                     <div>
                         <label for="name"

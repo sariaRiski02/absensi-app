@@ -18,7 +18,7 @@
     <div class="py-10 flex flex-wrap justify-center">
         @foreach ($data as $item)
         <div class="max-w-xs mx-2 mb-4">
-            <a href="/list-anggota/{{ $item->id }}"
+            <a href="/list-anggota/{{ $item->slug }}"
                 class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {{ $item->name }}

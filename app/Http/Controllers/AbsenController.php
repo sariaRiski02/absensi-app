@@ -3,64 +3,81 @@
 namespace App\Http\Controllers;
 
 use App\Models\group;
-
 use App\Models\participant;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use function Laravel\Prompts\alert;
-use Illuminate\Support\Facades\Validator;
 
 class AbsenController extends Controller
 {
-
-    public function fillAbsen()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        return view('fillAbsen');
     }
 
-    public function store(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(Request $request, $id)
     {
 
-        $data = [
-            'name' => $request->name,
-            'absencode' => $request->absencode,
-        ];
-        $rule =  [
-            'name' => 'required|max:255|min:3',
 
-            'absencode' => 'required|max:255',
-        ];
+        $duration = (int) $request->input('duration');
 
-        $message = [
-            'name.required' => 'Nama tidak boleh kosong',
-            'name.max' => 'Nama maksimal 255 karakter',
-            'name.min' => 'Nama minimal 3 karakter',
-            'absencode.required' => 'Kode absen tidak boleh kosong',
-            'absencode.max' => 'Kode absen maksimal 255 karakter',
-        ];
+        $group = group::find($id);
+        $group->update([
+            'code_absen' => strtoupper(Str::random(6)),
+            'deadline' => now()->addHours($duration),
+        ]);
 
-        $validated = Validator::make(
+        return redirect()->back();
+    }
 
-            $data,
-            $rule,
-            $message
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
 
-        );
 
-        if ($validated->fails()) {
-            return redirect()->back()->withErrors($validated)->withInput();
-        }
+        group::create($data);
+    }
 
-        $record = group::where('code_absen', $request->absencode)->first();
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
 
-        if (!empty($record) && $record->deadline > now()) {
-            participant::create([
-                'name' => $request->name,
-                'status' => 'Hadir',
-                'id_group' => $record->id,
-            ]);
-            return redirect()->route('absen.fill')->with('success', 'Absen berhasil diisi');
-        }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
-        return redirect()->route('absen.fill')->with('error', 'Kode absen tidak ditemukan atau sudah kadaluarsa');
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        participant::where('id', $id)->delete();
+        return redirect()->back();
     }
 }
